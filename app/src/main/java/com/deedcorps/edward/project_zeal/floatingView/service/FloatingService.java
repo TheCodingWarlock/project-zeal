@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import com.deedcorps.edward.project_zeal.R;
 import jp.co.recruit_lifestyle.android.floatingview.FloatingViewListener;
 import jp.co.recruit_lifestyle.android.floatingview.FloatingViewManager;
@@ -65,7 +66,16 @@ public class FloatingService extends Service implements FloatingViewListener {
     }
 
     private Notification createNotification(Context context) {
-        return null;
+        final NotificationCompat.Builder builder= new NotificationCompat.Builder()
+        builder.setWhen(System.currentTimeMillis());
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setContentText("Demo: Active");
+        builder.setContentText("Demo Running");
+        builder.setOngoing(true);
+        builder.setPriority(NotificationCompat.PRIORITY_MIN);
+        builder.setCategory(NotificationCompat.CATEGORY_SERVICE);
+
+        return builder.build();
     }
 
 
@@ -77,6 +87,9 @@ public class FloatingService extends Service implements FloatingViewListener {
 
     @Override
     public void onFinishFloatingView() {
+        stopSelf();
+        Log.d(TAG, "Floatingview has been deleted");
+
 
     }
 
