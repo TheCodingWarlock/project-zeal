@@ -1,6 +1,6 @@
 package com.deedcorps.edward.project_zeal
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class FloatingServiceActivity : AppCompatActivity() {
