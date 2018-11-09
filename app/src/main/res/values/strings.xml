@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">project-zeal</string>
+    <string name="floating_button_click_message">Floating Button clicked</string>
 </resources>
