@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">project-zeal</string>
     <string name="floating_button_click_message">Floating Button clicked</string>
+    <string name="default_floatingview_channel_id">default_floatingview_channel</string>
+    <string name="deleted_soon">Floating view will be deleted soon</string>
+    <string name="touch_finished_position" formatted="false">Current Position (%d,%d)</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="show_demo">Show Simple FloatingView</string>
+    <string name="default_floatingview_channel_name">Default Channel</string>
+    <string name="text_application_started">Application Started</string>
 </resources>

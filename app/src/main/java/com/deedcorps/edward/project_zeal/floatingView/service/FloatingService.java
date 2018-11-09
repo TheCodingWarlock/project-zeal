@@ -66,7 +66,7 @@ public class FloatingService extends Service implements FloatingViewListener {
     }
 
     private Notification createNotification(Context context) {
-        final NotificationCompat.Builder builder= new NotificationCompat.Builder()
+        final NotificationCompat.Builder builder= new NotificationCompat.Builder(context, context.getString(R.string.default_floatingview_channel_id));
         builder.setWhen(System.currentTimeMillis());
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setContentText("Demo: Active");
@@ -88,13 +88,31 @@ public class FloatingService extends Service implements FloatingViewListener {
     @Override
     public void onFinishFloatingView() {
         stopSelf();
-        Log.d(TAG, "Floatingview has been deleted");
+        Log.d(TAG, "FloatingView has been deleted");
 
 
     }
 
     @Override
-    public void onTouchFinished(boolean isFinishing, int x, int y) {
+    public void onDestroy() {
+        destroy();
+        super.onDestroy();
+    }
 
+    @Override
+    public void onTouchFinished(boolean isFinishing, int x, int y) {
+        if (isFinishing) {
+            Log.d(TAG, getString(R.string.deleted_soon));
+        } else {
+            Log.d(TAG, getString(R.string.touch_finished_position, x, y));
+        }
+
+    }
+
+    private void destroy(){
+        if(floatingViewManager != null){
+            floatingViewManager.removeAllViewToWindow();
+            floatingViewManager= null;
+        }
     }
 }
