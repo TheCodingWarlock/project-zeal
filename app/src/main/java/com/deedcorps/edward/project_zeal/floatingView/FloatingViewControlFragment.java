@@ -49,12 +49,7 @@ public class FloatingViewControlFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_floating_view_control, container, false);
-//        rootView.findViewById(R.id.show_floating_view).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
                 showFloatingView(getActivity(), true, false);
-//            }
-//        });
 
         return rootView;
     }
@@ -90,23 +85,19 @@ public class FloatingViewControlFragment extends Fragment {
     private static void startFloatingViewService(Activity activity, boolean isCustomFloatingView) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             if (activity.getWindow().getAttributes().layoutInDisplayCutoutMode == WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER) {
-                throw new RuntimeException("'windowLayoutInDisplayCutoutMode' do not be set to 'never'");
+                throw new RuntimeException(activity.getString(R.string.prompt_window_layout_not_set_to_never));
             }
 
             if (activity.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                throw new RuntimeException("Do not set Activity to landscape");
+                throw new RuntimeException(activity.getString(R.string.warning_do_not_set_to_landscape));
             }
         }
 
         final Class<? extends Service> service;
         final String key;
-//        if (isCustomFloatingView) {
-//            service= FloatingService.class;
-//            Log.d(TAG, "Option not in code");
-//        } else{
+
             service= FloatingService.class;
             key= FloatingService.EXTRA_CUTOUT_SAFE_AREA;
-//        }
         final Intent intent=  new Intent(activity, service);
         intent.putExtra(key, FloatingViewManager.findCutoutSafeArea(activity));
         ContextCompat.startForegroundService(activity, intent);

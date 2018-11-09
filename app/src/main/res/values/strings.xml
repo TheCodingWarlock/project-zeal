@@ -10,4 +10,8 @@
     <string name="show_demo">Show Simple FloatingView</string>
     <string name="default_floatingview_channel_name">Default Channel</string>
     <string name="text_application_started">Application Started</string>
+    <string name="prompt_window_layout_not_set_to_never">\'windowLayoutInDisplayCutoutMode\' do not be set to
+        \'never\'
+    </string>
+    <string name="warning_do_not_set_to_landscape">Do not set Activity to landscape</string>
 </resources>
