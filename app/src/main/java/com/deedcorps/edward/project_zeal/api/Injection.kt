@@ -22,5 +22,5 @@ object Injection {
             .build()
     }
 
-    private const val BASE_URL = "http://localhost:8080/"
+    private const val BASE_URL = "http://10.10.190.59:8080/"
 }
