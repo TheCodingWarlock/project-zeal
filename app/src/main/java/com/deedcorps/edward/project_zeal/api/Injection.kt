@@ -7,11 +7,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Injection {
 
-    fun getZealService(): ZealService {
+    private fun getZealService(): ZealService {
         return getRetrofitInstance().create(ZealService::class.java)
     }
 
-    suspend fun getZealResponse(article: Article): ZealResponse {
+    fun getZealResponse(article: Article): ZealResponse {
         return getZealService().postArticle(article).execute().body()
     }
 
