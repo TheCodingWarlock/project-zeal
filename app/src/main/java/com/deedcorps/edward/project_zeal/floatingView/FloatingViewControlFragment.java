@@ -32,6 +32,7 @@ import com.abangfadli.shotwatch.ScreenshotData;
 import com.abangfadli.shotwatch.ShotWatch;
 import com.deedcorps.edward.project_zeal.R;
 import com.deedcorps.edward.project_zeal.floatingView.service.FloatingService;
+import com.deedcorps.edward.project_zeal.mlservice.TextDetectorActivity;
 import jp.co.recruit_lifestyle.android.floatingview.FloatingViewManager;
 
 import java.io.File;
@@ -55,6 +56,7 @@ public class FloatingViewControlFragment extends Fragment {
     private String mImageFileName;
     private String mImageFilePath;
     private long mImageTime;
+    public static Uri screenShotUri;
 
     private ShotWatch shotWatch;
 
@@ -92,8 +94,12 @@ public class FloatingViewControlFragment extends Fragment {
 //                }else {
 //                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
 //                }
-                Uri uri = Uri.parse(screenshotData.getPath());
-                imageView.setImageURI(uri);
+                Uri screenShotUri = Uri.fromFile(new File(screenshotData.getPath()));
+                screenshotData.getPath();
+                imageView.setImageURI(screenShotUri);
+                Intent textDetectorIntent = new Intent(getActivity(), TextDetectorActivity.class);
+                textDetectorIntent.setData(screenShotUri);
+                startActivity(textDetectorIntent);
             }
         });
 
@@ -210,6 +216,10 @@ public class FloatingViewControlFragment extends Fragment {
         return bitmap;
 
 
+    }
+
+    public Uri getScreenShotUri() {
+        return screenShotUri;
     }
 
 

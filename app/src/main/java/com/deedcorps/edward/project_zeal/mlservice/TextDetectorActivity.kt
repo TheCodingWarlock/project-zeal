@@ -1,20 +1,27 @@
 package com.deedcorps.edward.project_zeal.mlservice
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.deedcorps.edward.project_zeal.R
 import com.deedcorps.edward.project_zeal.api.Injection
 import com.deedcorps.edward.project_zeal.api.model.Article
 import com.deedcorps.edward.project_zeal.api.model.ZealResponse
+import com.deedcorps.edward.project_zeal.floatingView.FloatingViewControlFragment
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import kotlinx.android.synthetic.main.activity_text_detector.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
+import android.provider.MediaStore
+
+
 
 
 class TextDetectorActivity : AppCompatActivity(), CoroutineScope {
@@ -28,12 +35,16 @@ class TextDetectorActivity : AppCompatActivity(), CoroutineScope {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_text_detector)
 
-        val drawable = this.resources.getDrawable(R.drawable.test_pick, null)
-        val bitmap = (drawable as BitmapDrawable).bitmap
-        analyzeTextFromBitmap(bitmap)
+//        val drawable = this.resources.getDrawable(R.drawable.test_pick, null)
+//        val bitmap = (drawable as BitmapDrawable).bitmap
+
+
+        intent?.data?.let { uri ->
+            val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+            analyzeTextFromBitmap(bitmap)
+        }
         resultsRecyclerView.apply {
             adapter = zealAdapter
-            layoutManager = LinearLayoutManager(this@TextDetectorActivity)
             setHasFixedSize(true)
         }
     }
