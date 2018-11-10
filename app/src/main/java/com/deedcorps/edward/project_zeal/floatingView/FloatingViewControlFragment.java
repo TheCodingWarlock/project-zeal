@@ -1,12 +1,14 @@
 package com.deedcorps.edward.project_zeal.floatingView;
 
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +20,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -74,14 +77,22 @@ public class FloatingViewControlFragment extends Fragment {
         showFloatingView(getActivity(), true, false);
         //return Bitmap
 //        Bitmap p= readFromFile();
-         final ImageView imageView= rootView.findViewById(R.id.imgBitmap);
+        final ImageView imageView = rootView.findViewById(R.id.imgBitmap);
 //        imageView.setImageBitmap(p);
 
-        shotWatch= new ShotWatch(getActivity().getContentResolver(), new ShotWatch.Listener() {
+        shotWatch = new ShotWatch(getActivity().getContentResolver(), new ShotWatch.Listener() {
             @Override
             public void onScreenShotTaken(ScreenshotData screenshotData) {
                 //Path to image
-                Uri uri= Uri.parse(screenshotData.getPath());
+//                if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+//                    Log.v(TAG, "Permission is granted");
+//                    Uri uri = Uri.parse(screenshotData.getPath());
+//                    imageView.setImageURI(uri);
+////                    return true;
+//                }else {
+//                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
+//                }
+                Uri uri = Uri.parse(screenshotData.getPath());
                 imageView.setImageURI(uri);
             }
         });
@@ -173,17 +184,17 @@ public class FloatingViewControlFragment extends Fragment {
         mScreenshotDir = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), SCREENSHOTS_DIR_NAME);
         mImageFilePath = new File(mScreenshotDir, mImageFileName).getAbsolutePath();
-            Bitmap bitmap = null;
-        if (!mImageFilePath.equals(null)){
+        Bitmap bitmap = null;
+        if (!mImageFilePath.equals(null)) {
             Log.i(TAG, mImageFileName);
             try {
                 bitmap = BitmapFactory.decodeStream(new FileInputStream(mImageFilePath));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-        }else{
-            mScreenshotDir= new File(Environment.DIRECTORY_PICTURES, SCREENSHOTS_DIR_NAME);
-            mImageFilePath= new File(mScreenshotDir, mImageFileName).getAbsolutePath();
+        } else {
+            mScreenshotDir = new File(Environment.DIRECTORY_PICTURES, SCREENSHOTS_DIR_NAME);
+            mImageFilePath = new File(mScreenshotDir, mImageFileName).getAbsolutePath();
 
             Log.i(TAG, mImageFileName);
             try {
