@@ -38,4 +38,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     //floating view
     implementation 'com.github.recruit-lifestyle:FloatingView:2.4.0'
+    implementation 'com.abangfadli.shotwatch:shotwatch:1.0.4'
+
+
 }

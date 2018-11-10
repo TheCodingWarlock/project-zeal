@@ -9,4 +9,11 @@
               android:layout_height="wrap_content"
               android:text="@string/text_application_started"
               android:textSize="@dimen/textSize20sp"/>
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="200dp"
+               android:id="@+id/imgBitmap"
+               android:layout_marginTop="@dimen/fab_margin_16dp"
+               android:scaleType="centerCrop"
+    android:contentDescription="@string/display_screenshot"/>
 </LinearLayout>
