@@ -3,7 +3,7 @@ package com.deedcorps.edward.project_zeal.mlservice
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import android.widget.Toast
 import com.deedcorps.edward.project_zeal.R

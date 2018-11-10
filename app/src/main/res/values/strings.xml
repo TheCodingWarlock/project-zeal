@@ -14,4 +14,6 @@
         \'never\'
     </string>
     <string name="warning_do_not_set_to_landscape">Do not set Activity to landscape</string>
+    <string name="notify_record">Recording</string>
+    <string name="notify_shutdown">Shut Down</string>
 </resources>
