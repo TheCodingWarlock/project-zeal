@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "37756535576",
+    "firebase_url": "https://project-zeal-50bd4.firebaseio.com",
+    "project_id": "project-zeal-50bd4",
+    "storage_bucket": "project-zeal-50bd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37756535576:android:a2cb3826323add5b",
+        "android_client_info": {
+          "package_name": "com.deedcorps.edward.project_zeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37756535576-94n3vjaijphrq89agl21kb2m5lakd1p4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deedcorps.edward.project_zeal",
+            "certificate_hash": "8d6038c6f312734a0cc5c26fde88009e2275e484"
+          }
+        },
+        {
+          "client_id": "37756535576-4ger3ru3knviqlr3sgbr7irg80ggcmpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdNLRJNXkvEVYgeL9SIMg4oqeQpCQigYw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37756535576-4ger3ru3knviqlr3sgbr7irg80ggcmpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

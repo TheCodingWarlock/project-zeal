@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
           xmlns:tools="http://schemas.android.com/tools" package="com.deedcorps.edward.project_zeal">
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.DUMP" tools:ignore="ProtectedPermissions"/>
+=======
+          package="com.deedcorps.edward.project_zeal">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+>>>>>>> 9015008c21d66a8a9ba1c15a054f7114d51544fb
 
     <application
             android:allowBackup="true"
@@ -14,6 +20,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".FloatingServiceActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN"/>-->
@@ -22,6 +29,16 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".floatingView.MainActivity">
+=======
+        <meta-data
+                android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+                android:value="ocr"/>
+
+        <activity android:name=".FloatingServiceActivity">
+
+        </activity>
+        <activity android:name=".mlservice.TextDetectorActivity">
+>>>>>>> 9015008c21d66a8a9ba1c15a054f7114d51544fb
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
