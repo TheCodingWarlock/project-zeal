@@ -18,6 +18,13 @@ import com.deedcorps.edward.project_zeal.R;
 import jp.co.recruit_lifestyle.android.floatingview.FloatingViewListener;
 import jp.co.recruit_lifestyle.android.floatingview.FloatingViewManager;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+
 public class FloatingService extends Service implements FloatingViewListener {
     private static final String TAG= FloatingService.class.getSimpleName();
     public static final String EXTRA_CUTOUT_SAFE_AREA = "cutout_safe_area";
@@ -48,6 +55,20 @@ public class FloatingService extends Service implements FloatingViewListener {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, getString(R.string.floating_button_click_message));
+//                ProcessBuilder pb= new ProcessBuilder("adb shell input keyevent 120");
+//                try {
+//                    Process process= pb.start();
+//                    BufferedReader bufferedReader= new BufferedReader((new InputStreamReader(process.getInputStream())));
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//                try {
+////                    Process process = Runtime.getRuntime().exec("adb shell input keyevent 120");
+////                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+
             }
         });
 
