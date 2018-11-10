@@ -11,7 +11,7 @@ object Injection {
         return getRetrofitInstance().create(ZealService::class.java)
     }
 
-    fun getZealResponse(article: Article): ZealResponse {
+    suspend fun getZealResponse(article: Article): ZealResponse {
         return getZealService().postArticle(article).execute().body()
     }
 
