@@ -3,9 +3,9 @@ package com.deedcorps.edward.project_zeal.mlservice
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.deedcorps.edward.project_zeal.R
 import com.deedcorps.edward.project_zeal.api.Injection
 import com.deedcorps.edward.project_zeal.api.model.Article
@@ -15,7 +15,6 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import kotlinx.android.synthetic.main.activity_text_detector.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
-
 
 class TextDetectorActivity : AppCompatActivity(), CoroutineScope {
 
@@ -54,7 +53,7 @@ class TextDetectorActivity : AppCompatActivity(), CoroutineScope {
 
     }
 
-    private suspend fun getResponse(article: Article): ZealResponse {
+    private suspend fun getResponse(article: Article): ZealResponse? {
         return withContext(Dispatchers.IO) {
             Injection.getZealResponse(article)
         }
